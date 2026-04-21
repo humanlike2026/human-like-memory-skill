@@ -176,6 +176,8 @@ Network requests are explicit and predictable.
 ### `save` / `save-batch` send
 
 - the message content you explicitly pass in
+- procedural-memory `v2/add/context` by default, with automatic fallback to legacy `v1/add/message`
+- structured `context_blocks`, including assistant tool calls and tool results when capture is enabled
 - `user_id`
 - `agent_id`
 - `scenario`
@@ -208,6 +210,10 @@ All platforms use the same `HUMAN_LIKE_MEM_*` variables and CLI flags.
 - `HUMAN_LIKE_MEM_RECALL_ENABLED`
 - `HUMAN_LIKE_MEM_ADD_ENABLED`
 - `HUMAN_LIKE_MEM_AUTO_SAVE_ENABLED`
+- `HUMAN_LIKE_MEM_SAVE_TRIGGER_TURNS`
+- `HUMAN_LIKE_MEM_SAVE_MAX_MESSAGES`
+- `HUMAN_LIKE_MEM_USE_V2_PROTOCOL`
+- `HUMAN_LIKE_MEM_CAPTURE_TOOL_CALLS`
 - `HUMAN_LIKE_MEM_SAVE_TRIGGER_TURNS`
 
 Current shared defaults:

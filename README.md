@@ -175,6 +175,8 @@ rm -rf "$tmp_dir"
 ### `save` / `save-batch` 会发送
 
 - 你明确传入的消息内容
+- 默认优先使用 procedural memory 的 `v2/add/context`，必要时回退到旧版 `v1/add/message`
+- 当输入里包含 assistant tool call / tool result 且未禁用捕获时，会一并写入结构化 `context_blocks`
 - `user_id`
 - `agent_id`
 - `scenario`
@@ -208,6 +210,9 @@ https://plugin.human-like.me
 - `HUMAN_LIKE_MEM_ADD_ENABLED`
 - `HUMAN_LIKE_MEM_AUTO_SAVE_ENABLED`
 - `HUMAN_LIKE_MEM_SAVE_TRIGGER_TURNS`
+- `HUMAN_LIKE_MEM_SAVE_MAX_MESSAGES`
+- `HUMAN_LIKE_MEM_USE_V2_PROTOCOL`
+- `HUMAN_LIKE_MEM_CAPTURE_TOOL_CALLS`
 
 当前共享 runtime 的默认值是：
 

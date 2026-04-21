@@ -13,6 +13,8 @@ const ALLOWED_ENV_KEYS = Object.freeze({
   AUTO_SAVE_ENABLED: 'HUMAN_LIKE_MEM_AUTO_SAVE_ENABLED',
   SAVE_TRIGGER_TURNS: 'HUMAN_LIKE_MEM_SAVE_TRIGGER_TURNS',
   SAVE_MAX_MESSAGES: 'HUMAN_LIKE_MEM_SAVE_MAX_MESSAGES',
+  USE_V2_PROTOCOL: 'HUMAN_LIKE_MEM_USE_V2_PROTOCOL',
+  CAPTURE_TOOL_CALLS: 'HUMAN_LIKE_MEM_CAPTURE_TOOL_CALLS',
 });
 const ALLOWED_ENV_KEY_SET = new Set(Object.values(ALLOWED_ENV_KEYS));
 const LOCALHOST_HOSTS = new Set(['localhost', '127.0.0.1', '::1']);
@@ -100,6 +102,8 @@ export async function buildConfig(cliOptions = {}) {
     autoSaveEnabled: parseBoolean(getConfigValue(cliOptions, 'auto-save-enabled', ALLOWED_ENV_KEYS.AUTO_SAVE_ENABLED), true),
     saveTriggerTurns: Math.max(1, parseInteger(rawSaveTriggerTurns, 5)),
     saveMaxMessages: Math.max(2, parseInteger(rawSaveMaxMessages, 20)),
+    useV2Protocol: parseBoolean(getConfigValue(cliOptions, 'use-v2-protocol', ALLOWED_ENV_KEYS.USE_V2_PROTOCOL), true),
+    captureToolCalls: parseBoolean(getConfigValue(cliOptions, 'capture-tool-calls', ALLOWED_ENV_KEYS.CAPTURE_TOOL_CALLS), true),
   };
 }
 

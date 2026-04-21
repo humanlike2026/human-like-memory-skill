@@ -127,6 +127,8 @@ echo '[{"role":"user","content":"..."},{"role":"assistant","content":"..."}]' | 
   node "${CODEX_HOME:-$HOME/.codex}/skills/human-like-memory/scripts/memory.mjs" save-batch
 ```
 
+如果输入里包含 assistant `tool_calls` 或 `tool` 结果消息，shared runtime 会默认按 procedural memory v2 协议一起写入；如需关闭，可设置 `HUMAN_LIKE_MEM_CAPTURE_TOOL_CALLS=false`。
+
 ## 与历史 OpenClaw 记忆兼容
 
 如果你想让 Codex 读取历史 OpenClaw plugin 的记忆，请覆盖：

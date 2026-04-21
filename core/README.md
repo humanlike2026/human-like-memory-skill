@@ -24,6 +24,7 @@
   负责对 HumanLike Memory 服务的 HTTP 调用。
 - `scripts/memory.mjs`
   共享 CLI 入口，所有平台最终都通过它执行业务动作。
+  当前默认优先使用 procedural-memory `v2/add/context` 写入，并在服务端或网关不兼容时自动回退到 `v1/add/message`。
 - `docs/shared-config.md`
   定义所有平台共用的配置契约。
 - `docs/security-model.md`

@@ -34,6 +34,8 @@ This is the only truly mandatory setting. Without it, authenticated requests can
 | `HUMAN_LIKE_MEM_AUTO_SAVE_ENABLED` | `true` | `--auto-save-enabled` | Allows smart-trigger batch save behavior. |
 | `HUMAN_LIKE_MEM_SAVE_TRIGGER_TURNS` | `5` | `--save-trigger-turns` | Suggested turn threshold before `save-batch`. |
 | `HUMAN_LIKE_MEM_SAVE_MAX_MESSAGES` | `20` | `--save-max-messages` | Max messages included in `save-batch`. |
+| `HUMAN_LIKE_MEM_USE_V2_PROTOCOL` | `true` | `--use-v2-protocol` | Prefer procedural-memory `v2/add/context` writes before falling back to v1. |
+| `HUMAN_LIKE_MEM_CAPTURE_TOOL_CALLS` | `true` | `--capture-tool-calls` | Include assistant tool calls and tool results in procedural-memory context blocks. |
 
 ## What The Important Fields Mean
 
@@ -88,6 +90,11 @@ Use CLI flags when:
 - the host platform cannot easily inject environment variables
 - you want a one-off override for a specific command
 - you want host config values converted into explicit command arguments
+
+For procedural-memory writes:
+
+- leave `--use-v2-protocol` enabled for the default behavior
+- disable `--capture-tool-calls` if the host should store only user/assistant dialogue
 
 ## Interoperability
 

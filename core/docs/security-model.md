@@ -33,11 +33,13 @@ If you do not invoke the runtime, it does not contact the service.
 ### `save` / `save-batch`
 
 - the message content you explicitly provide
+- structured `context_blocks` when procedural-memory v2 writes are enabled
+- optional assistant tool calls and tool results when capture is enabled
 - `user_id`
 - `agent_id`
+- `scenario`
 - generated `conversation_id`
 - generated request metadata used to group the save request
-- fixed tag `human-like-memory-skill`
 
 ## What The Runtime Reads
 
